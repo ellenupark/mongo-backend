@@ -32,6 +32,6 @@ const userRoutes = require('./controllers/user.controller')
 app.use('/users', userRoutes)
 
 const PORT = process.env.PORT || 5000
-app.listen(PORT, ()=>{
+app.listen(PORT, () => {
     console.log(`Successfully served on port: ${PORT}.`);
 })

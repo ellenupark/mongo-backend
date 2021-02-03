@@ -17,6 +17,13 @@ router.route('/').get((req, res) => {
         .catch(err => res.status(400).json('Error! ' + err))
 })
 
+router.route('/:id').get((req, res) => {
+    // using .find() without a paramter will match on all user instances
+    User.findById(req.params.id)
+        .then(user => res.json(user))
+        .catch(err => res.status(400).json('Error! ' + err))
+})
+
 router.route('/delete/:id').delete((req, res) => {
     User.deleteOne({ _id: req.params.id })
         .then(success => res.json('Success! User deleted.'))
